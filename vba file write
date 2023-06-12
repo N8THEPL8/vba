@@ -1,0 +1,30 @@
+Sub WriteStringToFile()
+    Dim fso As Object
+    Dim file As Object
+    Dim filePath As String
+    Dim textToWrite As String
+    
+    ' Set the file path
+    filePath = "C:\path\to\file.txt"
+    
+    ' Set the text to write
+    textToWrite = "This is the string to write to the file."
+    
+    ' Create a new FileSystemObject
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    ' Open the file for writing
+    Set file = fso.CreateTextFile(filePath)
+    
+    ' Write the string to the file
+    file.Write textToWrite
+    
+    ' Close the file
+    file.Close
+    
+    ' Clean up the objects
+    Set file = Nothing
+    Set fso = Nothing
+    
+    MsgBox "String written to file successfully!"
+End Sub
